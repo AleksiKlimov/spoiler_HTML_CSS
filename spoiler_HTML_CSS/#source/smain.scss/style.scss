@@ -1,0 +1,62 @@
+@import "nullstyleparent.scss";
+html,
+body{
+	height: 100%;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.wrapper { 
+	height: 100%;
+	padding: 50px;
+}
+.block {
+	&__item { }
+	&__title { 
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		position: relative;
+		padding: 0 0 0 30px;
+		cursor: pointer;
+	}
+	&__title::before, 
+	&__title:after { 
+	content: '';
+	width: 10px;
+	height: 1px;
+	background-color: #000;
+	position: absolute;
+	top: 8px;
+	transition: all 0.4s ease 0s;
+
+	}
+
+
+	&__title::before{
+		transform: rotate(40deg);
+		left:0;
+	}
+	&__title::after{
+		transform: rotate(-40deg);
+		left:8px;
+	}
+
+
+
+	&__text { 
+		display: none;
+		padding: 10px 0 0 0;
+	}
+}
+
+.block__title.active::after{
+	content: '';
+	background-color: rgb(184, 15, 15);
+		transform: rotate(40deg);
+		left:8px;
+}
+.block__title.active::before{
+	content: '';
+	background-color: rgb(184, 15, 15);
+		transform: rotate(-40deg);
+		left:0px;
+
+}
